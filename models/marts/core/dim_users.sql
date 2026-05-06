@@ -48,10 +48,10 @@ final as (
         , a.zipcode::varchar(20) as zipcode
         , a.state
         , a.country
-        , u.created_at_utc                                   as registered_at_utc
-        , u.updated_at_utc                                   as last_updated_at_utc
+        , u.created_at_utc::timestamp_tz                                   as registered_at_utc
+        , u.updated_at_utc::timestamp_tz                                   as last_updated_at_utc
         , datediff('day', u.created_at_utc, current_timestamp()) as days_since_registration
-        , u.date_load
+        , u.date_load::timestamp_tz as date_load
     from users u
     left join addresses a on u.address_id = a.address_id
 
