@@ -73,6 +73,7 @@ sources:
             data_tests:
               - not_null
               # Ejemplo de test relacional cross-source
+              #Añado este comentario
               - relationships:
                   arguments:
                     to: source('sql_server_dbo', 'products')
